@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta</title>
+    <link rel="stylesheet" href="static/carta.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="formulario">
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+    <form method="POST" action="/carta">
+        <div class = "data">
+            <p>{{ data_atual}}</p>
+        </div>
+        <div class="remetente">
+            <p>Olá, {{username}}</p>
+        </div>
+        <div class="destin">
+        <label for="destinatario">Destinatário: </label>
+        <input type="text" id="destinatario" name="destinatario"><br>
+        </div>
+        <div class = "msg">
+        <label for="mensagem">Carta:</label>
+        <textarea name="mensagem" rows="20" cols="500"></textarea>
+        </div>
+        <div class = "btnCarta">
+        <button type="submit">Salvar Carta</button>
+        <a href="/" class = "btnVoltar">Voltar</a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
